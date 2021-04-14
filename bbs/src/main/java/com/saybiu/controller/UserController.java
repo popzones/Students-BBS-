@@ -16,6 +16,15 @@ import java.util.Map;
 public class UserController {
 @RequestMapping(value="test1")
 @ResponseBody
+
+/**
+ * 如果返回类型为string，则会返回{"data":data,"responseCode":"000000","responseMessage":"请求成功","success":true}
+ * 如果返回类型为对象；如map，object，等，则会返回{"success":true,"data":{"data":123},"responseCode":"000000","responseMessage":"请求成功"}
+ * 如果返回类型为void，则只会返回{"success":true,"data":null,"responseCode":"000000","responseMessage":"请求成功"}
+ * 全局异常处理为throw new ServiceException(CommonCode.枚举值);
+ * 除ServiceException外的RuntimeException全部返回{"success":false,"data":null,"responseCode":"200000","responseMessage":"系统繁忙,请刷新或联系管理员处理"}
+ * 遇到此情况，请去tomcat查看输出日志，打印出来了。
+ */
     public Map test1()
 {
     Map map=new HashMap<>();
