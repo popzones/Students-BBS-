@@ -34,7 +34,7 @@ public class AutoResultReturnHandler implements ResponseBodyAdvice<Object> {
         else if(body instanceof String)
         {
             serverHttpResponse.getHeaders().set("Content-Type", "application/json;charset=utf-8");
-            ApiResult apiResult=new ApiResult(CommonCode.SUCCESS,"123");
+            ApiResult apiResult=new ApiResult(CommonCode.SUCCESS,body);
             return JSONObject.toJSONString(apiResult);
 
         }
