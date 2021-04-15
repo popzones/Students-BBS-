@@ -15,9 +15,8 @@ import java.util.Map;
 
 @Controller
 public class UserController {
-@RequestMapping(value="test1")
-@ResponseBody
-
+    @Resource
+    private UserService userService;
 /**
  * 如果返回类型为string，则会返回{"data":data,"responseCode":"000000","responseMessage":"请求成功","success":true}
  * 如果返回类型为对象；如map，object，等，则会返回{"success":true,"data":{"data":123},"responseCode":"000000","responseMessage":"请求成功"}
@@ -35,13 +34,16 @@ public class UserController {
  * {"success":false,"data":"传入参数类型错误","responseCode":"100001","responseMessage":"参数不完整或不正确"}
  *
  * 若要自定义异常，请在GlobalExceptionHandler声明方法，并写好注释！
+ * 更新时间：15日，王飞
  */
+    @RequestMapping(value="test1")
+    @ResponseBody
     public Map test1()
-{
+    {
     Map map=new HashMap<>();
     map.put("data",123);
     return map;
-}
+    }
     @RequestMapping(value="test2")
     @ResponseBody
     public String test2()
@@ -63,9 +65,9 @@ public class UserController {
     }
     @RequestMapping(value="test5")
     @ResponseBody
-    public void test5(@RequestParam(required = true) Integer name)
+    public void test5(@RequestParam(required = true) String name)
     {
-        System.out.println(name);
+        userService.setName(name);
     }
 
 

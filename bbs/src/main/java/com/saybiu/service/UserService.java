@@ -1,5 +1,7 @@
 package com.saybiu.service;
 
+import com.saybiu.exception.ServiceException;
+import com.saybiu.response.CommonCode;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
@@ -9,6 +11,7 @@ public class UserService {
 
     public void setName(String name) {
         this.name = name;
+        throw new ServiceException(CommonCode.NO_AUTH);
     }
     public void printHash()
     {
