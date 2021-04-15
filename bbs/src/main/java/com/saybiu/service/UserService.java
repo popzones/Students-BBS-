@@ -11,6 +11,9 @@ public class UserService {
 
     public void setName(String name) {
         this.name = name;
+        /**
+         * 自定义异常也可以在Service内抛出
+         */
         throw new ServiceException(CommonCode.NO_AUTH);
     }
     public void printHash()
