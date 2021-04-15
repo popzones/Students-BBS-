@@ -33,9 +33,10 @@ public class ControllerDemo {
  * {"success":false,"data":"传入参数类型错误","responseCode":"100001","responseMessage":"参数不完整或不正确"}
  *
  * 若要自定义异常，请在GlobalExceptionHandler声明方法，并写好注释！
- * 更新时间：15日，王飞
- */
-    @RequestMapping(value="test1")
+**/
+
+
+@RequestMapping(value="test1")
     @ResponseBody
     public Map test1()
     {
