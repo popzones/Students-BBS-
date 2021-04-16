@@ -2,7 +2,7 @@ package com.saybiu.domain;
 
 import java.io.Serializable;
 
-public class Usermeta implements Serializable {
+public class UserMeta implements Serializable {
     private Integer usermetaId;
     private Integer userId;
     private String userSex;

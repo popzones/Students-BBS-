@@ -2,7 +2,7 @@ package com.saybiu.domain;
 
 import java.io.Serializable;
 
-public class Postmeta implements Serializable {
+public class PostMeta implements Serializable {
     private Integer postmetaId;
     private String postLatestUpdateTime;
     private String postContent;
