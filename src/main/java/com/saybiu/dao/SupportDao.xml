@@ -12,4 +12,10 @@
         <result column="user_supported_id" property="userSupportedId"/>
         <result column="user_supported_nickname" property="userSupportedNickname"/>
     </resultMap>
+    <insert id="insertSupport">
+        insert into bbs_supports (user_support_id, user_support_nickname, user_supported_id, user_supported_nickname) values (#{userSupportId},#{userSupportNickname},#{userSupportedId},#{userSupportedNickname})
+    </insert>
+    <select id="selectSupportByEachUserId" resultType="java.lang.Integer">
+        select count(*) from bbs_supports where user_support_id=#{userId} and user_supported_id=#{beSupportedUserId}
+    </select>
 </mapper>
