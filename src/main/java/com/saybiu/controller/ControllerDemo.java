@@ -64,7 +64,7 @@ public class ControllerDemo {
     @ResponseBody
     public void test5(@RequestParam(required = true) String name)
     {
-        serviceDemo.setName(name);
+
     }
 
 
