@@ -13,8 +13,6 @@ import java.util.Map;
 
 @Controller
 public class ControllerDemo {
-    @Resource
-    private ServiceDemo serviceDemo;
 /**
  * 如果返回类型为string，则会返回{"data":data,"responseCode":"000000","responseMessage":"请求成功","success":true}
  * 如果返回类型为对象；如map，object，等，则会返回{"success":true,"data":{"data":123},"responseCode":"000000","responseMessage":"请求成功"}
