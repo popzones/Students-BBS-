@@ -20,4 +20,13 @@
         <result column="user_beliked_num" property="userBelikedNum"/>
         <result column="user_like_num" property="userLikeNum"/>
     </resultMap>
+    <update id="updateAddUserLikesNum">
+        update bbs_usermeta set user_support_num=user_support_num+1 where user_id=#{UserId}
+    </update>
+    <update id="updateAddUserBeLikesNum">
+        update bbs_usermeta set user_supported_num=user_supported_num+1 where user_id=#{UserId}
+    </update>
+    <select id="selectUserMetaById" resultMap="UserMetaOperation">
+        select usermeta_id, user_id, user_sex, user_picture_url, user_supported_num, user_support_post_num, user_post_num, comment_replied_id, user_latest_ip, user_nickname, user_support_num, user_beliked_num, user_like_num from bbs_usermeta where user_id=#{userId}
+    </select>
 </mapper>
