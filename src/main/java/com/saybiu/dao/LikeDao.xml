@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.saybiu.dao.LikeDao">
+
+    <!--  Like: 结果映射-->
+    <resultMap id="LikeOperation" type="com.saybiu.domain.Like">
+        <id column="like_id" property="likeId"/>
+        <result column="user_id" property="userId"/>
+        <result column="user_like_post_id" property="userLikePostId"/>
+        <result column="user_like_comment_id" property="userLikeCommentId"/>
+        <result column="user_like_post_url" property="userLikePostUrl"/>
+        <result column="user_like_post_title" property="userLikePostTitle"/>
+        <result column="user_like_comment_content" property="userLikeCommentContent"/>
+        <result column="user_beliked_id" property="userBelikedId"/>
+    </resultMap>
+</mapper>

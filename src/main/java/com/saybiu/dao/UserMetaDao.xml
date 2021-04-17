@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.saybiu.dao.UserMetaDao">
+
+    <!-- UserMeta: 结果映射-->
+    <resultMap id="UserMetaOperation" type="com.saybiu.domain.UserMeta">
+        <id column="usermeta_id" property="usermetaId"/>
+        <result column="user_id" property="userId"/>
+        <result column="user_sex" property="userSex"/>
+        <result column="user_picture_url" property="userPictureUrl"/>
+        <result column="user_supported_num" property="userSupportedNum"/>
+        <result column="user_support_post_num" property="userSupportPostNum"/>
+        <result column="user_post_num" property="userPostNum"/>
+        <result column="comment_replied_id" property="commentRepliedId"/>
+        <result column="user_latest_ip" property="userLatestIp"/>
+        <result column="user_nickname" property="userNickName"/>
+        <result column="user_support_num" property="userSupportNum"/>
+        <result column="user_beliked_num" property="userBelikedNum"/>
+        <result column="user_like_num" property="userLikeNum"/>
+    </resultMap>
+</mapper>

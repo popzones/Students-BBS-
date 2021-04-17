@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.saybiu.dao.CommentDao">
+    <!--  Comment: 结果映射-->
+    <resultMap id="CommentOperation" type="com.saybiu.domain.Comment">
+        <id column="reply_comment_id" property="replyCommentId"/>
+        <result column="reply_id" property="replyId"/>
+        <result column="reply_comment_user_id" property="replyCommentUserId"/>
+        <result column="reply_comment_user_nickname" property="replyCommentUserNickname"/>
+        <result column="replyed_user_id" property="replyUserId"/>
+        <result column="replyed_user_nickname" property="replyUserNickname"/>
+        <result column="Reply_comment_content" property="replyCommentContent"/>
+    </resultMap>
+
+</mapper>

@@ -13,6 +13,8 @@ public enum CommonCode {
     INVALID_PARAM(false, "100001", "参数不完整或不正确"),
     NO_LOGIN(false, "100002", "用户尚未登录"),
     NO_AUTH(false, "100003", "权限不足，禁止操作"),
+    LOGIN_OUT_TIME(false, "100004", "用户登录已失效"),
+    LOGIN_SUCCESS(true, "100004", "用户登录成功"),
     SERVER_ERROR(false, "200000", "系统繁忙,请刷新或联系管理员处理"),
     INSERT_ERROR(false, "300000", "插入数据失败"),
     UPDATE_ERROR(false, "300001", "更新数据失败"),

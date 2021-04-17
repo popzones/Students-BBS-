@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.saybiu.dao.PostDao">
+
+    <!--  Post: 结果映射-->
+    <resultMap id="PostOperation" type="com.saybiu.domain.Post">
+        <id column="post_id" property="postId"/>
+        <result column="user_id" property="userId"/>
+        <result column="post_title" property="postTitle"/>
+        <result column="post_time" property="postTime"/>
+        <result column="post_muted" property="postMuted"/>
+        <result column="post_type_name" property="postTypeName"/>
+        <result column="post_read_num" property="postReadNum"/>
+        <result column="post_liked_num" property="postLikeNum"/>
+        <result column="post_collected_num" property="postCollectionNum"/>
+        <result column="post_commented_num" property="postCommentedNum"/>
+        <result column="user_nickname" property="userNickname"/>
+    </resultMap>
+</mapper>
