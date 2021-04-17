@@ -19,7 +19,8 @@ public enum CommonCode {
     INSERT_ERROR(false, "300000", "插入数据失败"),
     UPDATE_ERROR(false, "300001", "更新数据失败"),
     DELETE_ERROR(false, "300002", "删除数据失败"),
-    SELECT_ERROR(false, "300003", "未查询到相关数据");
+    SELECT_ERROR(false, "300003", "未查询到相关数据"),
+    INSERT_REPEAT(false, "300004", "数据重复，插入失败");
 
 
 
