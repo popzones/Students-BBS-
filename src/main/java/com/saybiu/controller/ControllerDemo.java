@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -62,10 +63,14 @@ public class ControllerDemo {
     }
     @RequestMapping(value="test5")
     @ResponseBody
-    public void test5(@RequestParam(required = true) String name)
+    public void test5(@RequestParam(required = true) String name, HttpServletResponse response)
     {
 
     }
 
+    public void test6()
+    {
+
+    }
 
 }
