@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd">
+  <!--  &lt;!&ndash;声明注解驱动&ndash;&gt;
+    <mvc:annotation-driven>
+        <mvc:argument-resolvers>
+            <bean class="com.saybiu.bbs.resolver.ParseTokenHandlerMethodArgumentResolver"></bean>
+        </mvc:argument-resolvers>
+    </mvc:annotation-driven>-->
+<!--   配置拦截器-->
+<!--    <mvc:interceptors>-->
+<!--       <mvc:interceptor>-->
+<!--           <mvc:mapping path="/**"/>-->
+<!--                <mvc:exclude-mapping path="/user/login"/>-->
+<!--                <mvc:exclude-mapping path="/static/**"/>-->
+<!--                <mvc:exclude-mapping path="/users/getSessionKey"/>-->
+<!--                <mvc:exclude-mapping path="/users/wxLogin"/>-->
+<!--                &lt;!&ndash;<bean class="com.saybiu.bbs.interceptor.UserLoginInterceptor"/>&ndash;&gt;-->
+<!--       </mvc:interceptor>-->
+<!--   </mvc:interceptors>-->
+    <!--    声明拦截器-->
+    <!--    <mvc:interceptors>-->
+    <!--        <mvc:interceptor>-->
+    <!--            <mvc:mapping path="/**"/>-->
+    <!--            <mvc:exclude-mapping path="/user/login"/>-->
+    <!--            <mvc:exclude-mapping path="/static/**"/>-->
+    <!--            <mvc:exclude-mapping path="/users/getSessionKey"/>-->
+    <!--            <mvc:exclude-mapping path="/users/wxLogin"/>-->
+    <!--            <bean class="com.saybiu.interceptor.UserLoginInterceptor"/>-->
+    <!--        </mvc:interceptor>-->
+    <!--        <mvc:interceptor>-->
+    <!--            <mvc:mapping path="/**"/>-->
+    <!--            <bean class="com.saybiu.bbs.interceptor.HttpInterceptor"/>-->
+    <!--        </mvc:interceptor>-->
+    <!--        <mvc:interceptor>-->
+    <!--            <mvc:mapping path="/upload"/>-->
+    <!--            <bean class="com.saybiu.interceptor.FileUploadInterceptor"/>-->
+    <!--        </mvc:interceptor>-->
+    <!--    </mvc:interceptors>-->
+</beans>

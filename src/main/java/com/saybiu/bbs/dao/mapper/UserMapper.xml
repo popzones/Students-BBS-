@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.saybiu.bbs.dao.mapper.UserMapper">
+
+    <resultMap id="BaseResultMap" type="com.saybiu.bbs.entity.User">
+            <id property="userId" column="user_id" jdbcType="INTEGER"/>
+            <result property="userPhone" column="user_phone" jdbcType="VARCHAR"/>
+            <result property="userPassword" column="user_password" jdbcType="VARCHAR"/>
+            <result property="userMuted" column="user_muted" jdbcType="BOOLEAN"/>
+            <result property="createTime" column="create_time" jdbcType="VARCHAR"/>
+            <result property="updateTime" column="update_time" jdbcType="VARCHAR"/>
+            <result property="userRegisterIp" column="user_register_ip" jdbcType="VARCHAR"/>
+            <result property="userLatestIp" column="user_latest_ip" jdbcType="VARCHAR"/>
+    </resultMap>
+    <resultMap id="ResultMap" type="com.saybiu.bbs.entity.User">
+        <id property="userId" column="user_id" jdbcType="INTEGER"/>
+        <result property="userPhone" column="user_phone" jdbcType="VARCHAR"/>
+        <result property="userPassword" column="user_password" jdbcType="VARCHAR"/>
+        <result property="userMuted" column="user_muted" jdbcType="BOOLEAN"/>
+        <result property="createTime" column="create_time" jdbcType="VARCHAR"/>
+        <result property="updateTime" column="update_time" jdbcType="VARCHAR"/>
+        <result property="userRegisterIp" column="user_register_ip" jdbcType="VARCHAR"/>
+        <result property="userLatestIp" column="user_latest_ip" jdbcType="VARCHAR"/>
+        <association property="usermeta" resultMap="com.saybiu.bbs.dao.mapper.UsermetaMapper.BaseResultMap"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        user_id,user_phone,user_password,
+        user_muted,create_time,update_time,
+        user_register_ip,user_latest_ip,user_role_id
+    </sql>
+    <select id="queryUser" resultMap="ResultMap">
+        select * from bbs_users join bbs_usermeta on bbs_usermeta.user_id = bbs_users.user_id  where bbs_users.user_id = #{userId}
+    </select>
+    <select id="selectUserByPhone" resultType="com.saybiu.bbs.entity.User">
+        select  bbs.bbs_users.user_id,bbs.bbs_users.user_phone,bbs.bbs_users.user_password from bbs_users where user_phone=#{phone}
+    </select>
+</mapper>

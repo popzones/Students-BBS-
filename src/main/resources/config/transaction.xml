@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd">
+
+
+<!--    声明事物管理器模型-->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <tx:advice id="myAdvice" transaction-manager="transactionManager">
+        <tx:attributes>
+            <!-- 王伟事务 -->
+            <tx:method name="addSupport" isolation="READ_COMMITTED" read-only="false"/>
+            <tx:method name="deleteSupport" isolation="READ_COMMITTED" read-only="false"/>
+            <tx:method name="register" isolation="READ_COMMITTED" read-only="false"/>
+            <tx:method name="commonRegister" isolation="READ_COMMITTED" read-only="false"/>
+            <tx:method name="add*"/>
+
+        </tx:attributes>
+    </tx:advice>
+    <!--配置切入点表达式-->
+    <aop:config>
+        <aop:pointcut id="ServicePt" expression="execution(* *..service..*.*(..))"/>
+        <aop:advisor advice-ref="myAdvice" pointcut-ref="ServicePt"/>
+    </aop:config>
+
+</beans>

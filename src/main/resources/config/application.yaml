@@ -1,0 +1,88 @@
+#设置返回字符编码为utf-8,防止乱码
+server:
+  servlet:
+    encoding:
+      charset: utf-8
+      force: true
+
+
+#springmvc配置
+
+spring:
+  mvc:
+    static-path-pattern: /static/**  #所有京台资源请求以static开头
+    throw-exception-if-no-handler-found: true
+  web:
+    resources:
+      static-locations: classpath:/static/    #静态资源目录为static文件夹
+
+
+
+  #配置数据库连接源
+  datasource:
+    url: jdbc:mysql://42.193.98.52:3306/bbs
+    username: admin
+    password: wf981230
+    druid:
+      max-active: 20 #配置druid连接池，最大连接数为20
+      aop-patterns: com.saybiu.bbs.*
+      filters: stat,wall     # stat（sql监控），wall（防火墙）
+
+      stat-view-servlet: # 配置监控页功能
+        enabled: true
+        login-username: admin
+        login-password: wf981230
+        resetEnable: false
+
+      web-stat-filter: # 监控web
+        enabled: true
+        urlPattern: /*
+        exclusions: '*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*'
+
+
+      filter:
+        stat: # 对上面filters里面的stat的详细配置
+          slow-sql-millis: 1000
+          logSlowSql: true
+          enabled: true
+        wall:
+          enabled: true
+          config:
+            drop-table-allow: false
+  security:
+    user:
+      name: wf981230
+      password: wz541130
+  main:
+    allow-bean-definition-overriding: true
+
+
+
+
+
+
+
+#mybatis-plus配置
+mybatis-plus:
+  configuration:
+    mapUnderscoreToCamelCase: true #开启驼峰命名
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #开启mybatis log日志
+    lazy-loading-enabled: true
+    aggressive-lazy-loading: false
+
+
+custom:
+  security:
+    open-api:
+      - /sms/register
+      - /register
+      - /code
+      - /common/login
+
+
+
+
+
+
+
+

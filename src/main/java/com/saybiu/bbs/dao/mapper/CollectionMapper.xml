@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.saybiu.bbs.dao.mapper.CollectionMapper">
+
+    <resultMap id="BaseResultMap" type="com.saybiu.bbs.entity.Collection">
+            <id property="collectionId" column="collection_id" jdbcType="INTEGER"/>
+            <result property="userId" column="user_id" jdbcType="INTEGER"/>
+            <result property="postId" column="post_id" jdbcType="INTEGER"/>
+            <result property="createTime" column="create_time" jdbcType="VARCHAR"/>
+    </resultMap>
+    <resultMap id="ResultMap" type="com.saybiu.bbs.entity.Collection">
+        <id property="collectionId" column="collection_id" jdbcType="INTEGER"/>
+        <result property="userId" column="user_id" jdbcType="INTEGER"/>
+        <result property="postId" column="post_id" jdbcType="INTEGER"/>
+        <result property="createTime" column="create_time" jdbcType="VARCHAR"/>
+        <collection property="post" resultMap="com.saybiu.bbs.dao.mapper.PostMapper.ResultMap"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        collection_id,user_id,post_id,
+        create_time
+    </sql>
+    <!--查询收藏信息-->
+    <select id="queryCollections" resultMap="ResultMap">
+        select
+            bbs_collections.collection_id,
+            bbs_collections.user_id,
+            bbs_collections.post_id,
+            bbs_collections.create_time,
+            bbs_posts.post_id,
+            bbs_posts.user_id as uid,
+            bbs_posts.create_time as ctime,
+            bbs_posts.update_time,
+            bbs_posts.post_muted,
+            bbs_postmeta.postmeta_id,
+            bbs_postmeta.post_content,
+            bbs_postmeta.post_id,
+            bbs_postmeta.post_title,
+            bbs_postmeta.post_type_name,
+            bbs_postmeta.post_read_num,
+            bbs_postmeta.post_liked_num,
+            bbs_postmeta.post_collected_num,
+            bbs_postmeta.post_commented_num,
+            bbs_postmeta.update_time
+        from bbs_collections
+        left join bbs_posts on bbs_collections.post_id = bbs_posts.post_id
+        left join bbs_postmeta on bbs_postmeta.post_id = bbs_posts.post_id
+         where bbs_collections.user_id = #{userId}
+    </select>
+</mapper>

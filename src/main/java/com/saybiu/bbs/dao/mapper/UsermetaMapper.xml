@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.saybiu.bbs.dao.mapper.UsermetaMapper">
+
+    <resultMap id="BaseResultMap" type="com.saybiu.bbs.entity.Usermeta">
+            <id property="usermetaId" column="userMeta_id" jdbcType="INTEGER"/>
+            <result property="userNickname" column="user_nickname" jdbcType="VARCHAR"/>
+            <result property="userSex" column="user_sex" jdbcType="VARCHAR"/>
+            <result property="userProfilePicture" column="user_profile_picture" jdbcType="VARCHAR"/>
+            <result property="userSupportedNum" column="user_supported_num" jdbcType="INTEGER"/>
+            <result property="userSupportPostNum" column="user_support_post_num" jdbcType="INTEGER"/>
+            <result property="userPostNum" column="user_post_num" jdbcType="INTEGER"/>
+            <result property="userSupportNum" column="user_support_num" jdbcType="INTEGER"/>
+            <result property="userLikeNum" column="user_like_num" jdbcType="INTEGER"/>
+            <result property="userIntroduce" column="user_introduce" jdbcType="VARCHAR"/>
+            <result property="userId" column="user_id"  jdbcType="INTEGER" />
+    </resultMap>
+    <resultMap id="BaseResultMap2" type="com.saybiu.bbs.entity.Usermeta">
+        <id property="usermetaId" column="userMeta_id" jdbcType="INTEGER"/>
+        <result property="userNickname" column="user_nickname" jdbcType="VARCHAR"/>
+        <result property="userSex" column="user_sex" jdbcType="VARCHAR"/>
+        <result property="userProfilePicture" column="user_profile_picture" jdbcType="VARCHAR"/>
+        <result property="userSupportedNum" column="user_supported_num" jdbcType="INTEGER"/>
+        <result property="userSupportPostNum" column="user_support_post_num" jdbcType="INTEGER"/>
+        <result property="userPostNum" column="user_post_num" jdbcType="INTEGER"/>
+        <result property="userSupportNum" column="user_support_num" jdbcType="INTEGER"/>
+        <result property="userLikeNum" column="user_like_num" jdbcType="INTEGER"/>
+        <result property="userIntroduce" column="user_introduce" jdbcType="VARCHAR"/>
+        <result property="userId" column="uid"  jdbcType="INTEGER" />
+    </resultMap>
+
+
+    <sql id="Base_Column_List">
+        userMeta_id,user_nickname,user_sex,
+        user_profile_picture,user_supported_num,user_support_post_num,
+        user_post_num,user_support_num,user_like_num,
+        user_introduce,user_id
+    </sql>
+    <!--通过userid更新用户属性表关注数量加一-->
+    <update id="addSupportNum">
+        update bbs_usermeta
+        set user_support_num = user_support_num + 1
+        where user_id = #{userId}
+    </update>
+    <!--通过beSupportedUserId更新用户属性表粉丝数量加一-->
+    <update id="addSupportedNum">
+        update bbs_usermeta
+        set user_supported_num = user_supported_num + 1
+        where user_id = #{userId}
+    </update>
+    <!--通过userid更新用户属性表关注数量减一-->
+    <update id="deleteSupportNum">
+        update bbs_usermeta
+        set user_support_num = user_support_num - 1
+        where user_id = #{userId}
+    </update>
+    <!--通过beSupportedUserId更新用户属性表粉丝数量加一-->
+    <update id="deleteSupportedNum">
+        update bbs_usermeta
+        set user_supported_num = user_supported_num - 1
+        where user_id = #{userId}
+    </update>
+</mapper>
